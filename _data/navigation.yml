@@ -1,9 +1,11 @@
 main:
-  - title: "Posts"
+  - title: "CV 个人简历"
+    url: /CV/
+  - title: "Posts 博客"
     url: /posts/
-  - title: "Categories"
+  - title: "Categories 分类"
     url: /categories/
-  - title: "Tags"
+  - title: "Tags 标签"
     url: /tags/
-  - title: "About"
+  - title: "About 关于"
     url: /about/
