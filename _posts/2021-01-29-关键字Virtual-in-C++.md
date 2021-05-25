@@ -68,3 +68,43 @@ func(cat);    // Outputs: "I'm eating a rat."
 
 # 纯虚函数
 
+纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加 =0。
+
+```{C++}
+virtual void func()=0
+```
+
+在父类中定义纯虚函数，子类必须重载以实现多态性。
+
+定义了纯虚函数的类称为抽象类，不能生成对象。继承了纯虚函数但是没有重载的派生类还是抽象类，无法建立具体的对象。
+
+定义虚函数的目的只是声明一个接口，告诉子类的设计者，你必须提供一个纯虚函数的实现，但是我不知道你会怎样实现它。
+
+# 虚拟Destructor
+
+拥有虚函数的基类需要定义虚拟Destructor。原因如下：
+
+```{C++}
+class num_sequence { 
+public: 
+virtual ~num_sequence(); 
+// ... 
+};
+
+class Fibonacci: public num_sequence{
+public:
+  virtual ~Fibonacci();
+  //...
+}
+
+num_sequence *ps = new Fibonacci(12); 
+// ... use the sequence 
+delete ps;
+
+/*此刻需要动态绑定，调用Fibonacci的Destructor而不是num_sequence的。*/
+```
+
+
+
+
+
